@@ -1,0 +1,166 @@
+---
+title: "Lab 11: Alphafold Analysis"
+author: "Trevor Hoang (A16371830)"
+format: pdf
+---
+
+Here we analyze our AlphaFold structure prediction models. The input directory/folder comes from the ColabFold server.
+
+```{r}
+results = "hivpr_dimer_23119"
+```
+
+```{r}
+pdb_files <- list.files(path=results,
+                        pattern="*.pdb",
+                        full.names = TRUE)
+
+basename(pdb_files)
+```
+
+I will use the Bio3D package for analysis
+
+```{r}
+library(bio3d)
+
+pdbs = pdbaln(pdb_files, fit=T, exefile = "msa")
+```
+
+Align and superimpose
+
+```{r}
+pdbs
+```
+
+Using `rmsd()` function to calculate the RMSD between all pairs models
+```{r}
+rd = rmsd(pdbs,fit=T)
+
+range(rd)
+```
+
+Drawing a heatmap
+
+```{r}
+library(pheatmap)
+
+colnames(rd) = paste0("m", 1:5)
+rownames(rd) = paste0("m", 1:5)
+pheatmap(rd)
+```
+
+```{r}
+pdb = read.pdb("1hsg")
+```
+
+```{r}
+core = core.find(pdbs)
+
+core.inds = print(core, vol=0.5)
+```
+
+```{r}
+xyz = pdbfit(pdbs, core.inds, outpath ="corefit_structures")
+```
+
+Examining the RMSG between positions of the structure
+
+```{r}
+rf = rmsf(xyz)
+
+plotb3(rf, sse=pdb)
+abline(v=100, col="gray", ylab="RMSF")
+```
+
+## Predicted Alignment Error
+
+Prediction for model 1
+
+```{r}
+library(jsonlite)
+
+pae_files <- list.files(path=results,
+                        pattern=".*model.*\\.json",
+                        full.names = TRUE)
+
+pae1 <- read_json(pae_files[1],simplifyVector = TRUE)
+pae5 <- read_json(pae_files[5],simplifyVector = TRUE)
+
+attributes(pae1)
+
+```
+
+```{r}
+head(pae1$plddt)
+```
+
+```{r}
+pae1$max_pae
+pae5$max_pae
+```
+
+Plotting PAE scores
+```{r}
+plot.dmat(pae1$pae, 
+          xlab="Residue Position (i)",
+          ylab="Residue Position (j)")
+```
+
+```{r}
+plot.dmat(pae5$pae, 
+          xlab="Residue Position (i)",
+          ylab="Residue Position (j)",
+          grid.col = "black",
+          zlim=c(0,30))
+```
+
+```{r}
+plot.dmat(pae1$pae, 
+          xlab="Residue Position (i)",
+          ylab="Residue Position (j)",
+          grid.col = "black",
+          zlim=c(0,30))
+```
+
+##Residue conservation from alignment file
+
+```{r}
+aln_file <- list.files(path=results,
+                       pattern=".a3m$",
+                        full.names = TRUE)
+aln_file
+
+```
+
+```{r}
+aln <- read.fasta(aln_file[1], to.upper = TRUE)
+```
+
+Finding the amount of sequences in the alignment
+```{r}
+dim(aln$ali)
+
+```
+Scoring the residue consercation
+
+```{r}
+sim <- conserv(aln)
+plotb3(sim[1:99], sse=trim.pdb(pdb, chain="A"),
+       ylab="Conservation Score")
+```
+
+```{r}
+con <- consensus(aln, cutoff = 0.9)
+con$seq
+```
+
+```{r}
+m1.pdb <- read.pdb(pdb_files[1])
+occ <- vec2resno(c(sim[1:99], sim[1:99]), m1.pdb$atom$resno)
+write.pdb(m1.pdb, o=occ, file="m1_conserv.pdb")
+```
+
+
+
+
+
