@@ -11,5 +11,5 @@ My classwork from W25 BIMM143 at UC San Diego [BIMM143](https://bioboot.github.i
 
 - Class07: [Introduction to machine learning for Bioinformatics]
 
-- Class08: [Cancer Cell MiniProject]
+- Class08: [Cancer Cell MiniProject](https://htmlpreview.github.io/?https://raw.githubusercontent.com/t4hoang/BIMM143_Github/refs/heads/main/Lab8/Lab%208.html)
 
