@@ -4,7 +4,7 @@ My classwork from W25 BIMM143 at UC San Diego [BIMM143](https://bioboot.github.i
 
 - Class04: [Introduction to R](https://github.com/t4hoang/BIMM143_Github/blob/main/Lab%204/Lab-4_files/Lab-4.pdf)
 
-- Class05: [Data visualization with ggplot](
+- Class05: [Data visualization with ggplot](https://htmlpreview.github.io/?https://raw.githubusercontent.com/t4hoang/BIMM143_Github/refs/heads/main/Lab%204/Lab-4_files/Lab-4.html)
 
 - Class06: [R Functions](
 
