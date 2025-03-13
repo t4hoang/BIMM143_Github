@@ -13,3 +13,15 @@ My classwork from W25 BIMM143 at UC San Diego [BIMM143](https://bioboot.github.i
 
 - Class08: [Cancer Cell MiniProject](https://htmlpreview.github.io/?https://raw.githubusercontent.com/t4hoang/BIMM143_Github/refs/heads/main/Lab8/Lab%208.html)
 
+- Class09: [Halloween Candy Mini-Project]
+
+- Class10: [Structural Bioinformatics]
+
+- Class11: [Structural Bioinformatics in Alphafold]
+
+- Class12: [Genome informatics]
+
+- Class13: [Transcriptomics and the analysis of RNA-Seq data]
+
+- Class14: [RNA-Seq analysis mini-project]
+
