@@ -21,7 +21,7 @@ My classwork from W25 BIMM143 at UC San Diego [BIMM143](https://bioboot.github.i
 
 - Class12: [Genome informatics](https://htmlpreview.github.io/?https://raw.githubusercontent.com/t4hoang/BIMM143_Github/refs/heads/main/Lab%2012/Lab%2012.qmd)
 
-- Class13: [Transcriptomics and the analysis of RNA-Seq data](https://htmlpreview.github.io/?
+- Class13: [Transcriptomics and the analysis of RNA-Seq data](https://htmlpreview.github.io/?https://github.com/t4hoang/BIMM143_Github/blob/main/Lab%2013/Lab%2013.html)
 
 - Class14: [RNA-Seq analysis mini-project](https://htmlpreview.github.io/?https://raw.githubusercontent.com/t4hoang/BIMM143_Github/refs/heads/main/Lab%2014/Lab%2014.html)
 
