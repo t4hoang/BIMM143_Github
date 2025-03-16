@@ -1,7 +1,7 @@
 ---
 title: "Lab 13: Transcriptomics RNA Seq"
 author: "Trevor Hoang (A16371830)"
-format: pdf
+format: html
 ---
 
 Today we will analyze published RNA-seq experiment where airway smooth muscle cells were treated with dexamethasone, a synthetic glucocorticoid steroid with anti-inflammatory effects (Himes et al. 2014).
