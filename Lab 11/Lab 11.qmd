@@ -1,7 +1,7 @@
 ---
 title: "Lab 11: Alphafold Analysis"
 author: "Trevor Hoang (A16371830)"
-format: pdf
+format: html
 ---
 
 Here we analyze our AlphaFold structure prediction models. The input directory/folder comes from the ColabFold server.
